@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+import React, {useState} from 'react'
 
 function UseStateHook() {
-  const [inputField, setInputFeild] = useState("sayan");
 
-  const inputOnChange = (e) => {
-    let inputValue = e.target.value;
-    setInputFeild(inputValue);
-  };
+  const [input, setInput] = useState("")
+  const [text, setText] = useState("")
 
-  const btnClick = (e) => {
-    inputField
-  };
-
+  const onSubmitClick = () => {
+    setText(input)
+  }
+  
   return (
-    <>
-      <input
-        type="text"
-        placeholder="type..."
-        onChange={inputOnChange}
-        value={inputField}
-      />
-      <button onClick={btnClick}>Submit</button>
-      <div>g</div>
-    </>
-  );
+    <div>
+      <h1>{text}</h1>
+      <input type="text" placeholder='text' onChange={(e) => setInput(e.target.value)} value={input}/>
+      <button onClick={onSubmitClick}>Submit</button>
+    </div>
+  )
 }
 
-export default UseStateHook;
+export default UseStateHook
