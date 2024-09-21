@@ -1,6 +1,5 @@
 .DS_STORE
 node_modules
-00_projects
 scripts/flow/*/.flowconfig
 .flowconfig
 *~
