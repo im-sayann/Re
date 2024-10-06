@@ -6,6 +6,11 @@ export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [editClick, setEditClick] = useState("");
   const [editId, setEditId] = useState(null);
+  const [color, setColor] = useState(null)
+
+  const handleColor = (color) => {
+    setColor(color)
+  }
 
   const addTodo = (inputValue) => {
     if (editId !== null) {
@@ -33,7 +38,7 @@ export const TodoProvider = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{ todos, addTodo, deleteTodo, editTodo, editClick, editId }}
+      value={{ todos, addTodo, deleteTodo, editTodo, editClick, editId, color, handleColor }}
     >
       {children}
     </TodoContext.Provider>

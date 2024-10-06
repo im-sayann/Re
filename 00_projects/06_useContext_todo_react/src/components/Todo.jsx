@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UseTodo } from "../store/UseTodo";
 
 function Todo() {
-  const { todos, deleteTodo, editTodo, editId } = UseTodo();
+  const [colorMatch, setColorMatch] = useState(null)
+  const { todos, deleteTodo, editTodo, editId, color } = UseTodo();
+
+  useEffect(() => {
+     setColorMatch(color)
+     console.log(color)
+  }, [color])
+  
 
   const handleDelete = (id) => {
     deleteTodo(id);
@@ -22,8 +29,9 @@ function Todo() {
         todos.map((todo, index) => {
           return (
             <div
+              style={{backgroundColor: colorMatch}}
               key={index}
-              className={`todo bg-purple-800 py-2 px-7 rounded-[20px] flex justify-between items-center ${
+              className={`bg-purple-800 todo  py-2 px-7 rounded-[20px] flex justify-between items-center ${
                 editId === index ? "border border-[#ffecec]" : ""
               }`} // Conditionally apply border if editing
             >
